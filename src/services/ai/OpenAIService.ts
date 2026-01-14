@@ -376,7 +376,7 @@ ${request.instruction ? `\n【额外要求】\n${request.instruction}` : ''}
    * 确保值是字符串
    * 处理AI可能返回对象、数组、undefined等非字符串类型的情况
    */
-  private ensureString(value: any): string {
+  protected ensureString(value: any): string {
     if (value === null || value === undefined) {
       return '';
     }
