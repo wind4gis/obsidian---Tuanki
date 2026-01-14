@@ -956,7 +956,8 @@ export class TuankiPlugin extends Plugin {
 	async validateLicense(): Promise<void> {
 		try {
 			if (this.settings.license.isActivated) {
-				const result = 				if (!result.isValid) {
+				const result = await this.licenseManager.validateLicense();
+				if (!result.isValid) {
 					console.warn('许可证验证失败:', result.error);
 					// 重置许可证状态
 					this.settings.license.isActivated = false;
